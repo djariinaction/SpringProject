@@ -1,0 +1,27 @@
+.menu-list{
+    padding-left: 30px;
+    padding-top: 20px;
+}
+.home-section{
+    float:left;
+    width: 10%;
+}
+.section{
+    margin-left: 10%;
+    float:left;
+}
+.photo{
+    padding-right: 5px;
+}
+
+body{
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-image: url(../../../../../images/background.jpg) !important;
+    background-size: 1537px 800px;
+    background-repeat: no-repeat;
+    display: compact;
+    background-color: #fff;
+}

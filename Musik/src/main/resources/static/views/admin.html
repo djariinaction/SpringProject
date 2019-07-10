@@ -1,0 +1,70 @@
+<div style="width: 70%; margin-left: 15%">
+<button type="button" class="btn btn-primary" ng-click="addNewSong()">Add</button>
+	<form  ng-show="showAddSongDialogue">
+	
+		<div class="form-row">
+			<div class="form-group col-md-12">
+				<label for="inputAddress">Title</label> <input type="text"
+					class="form-control" id="title" placeholder="Title" ng-model="newSong.title">
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				<label for="genre">Genre</label> <select class="form-control"
+					id="genre" ng-model="selectedGenre" ng-options="item.value for item in genres">
+				</select>
+			</div>
+			<div class="form-group col-md-4">
+				<label for="langauge">Language</label> <select class="form-control"
+					id="langauge" ng-model="selectedLanguage" ng-options="item.value for item in languages">
+				</select>
+			</div>
+			<div class="form-group col-md-4">
+				<label for="album">Album</label> <input type="text"
+					class="form-control" id="album" ng-model="newSong.album">
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-10">
+				<label for="album">Artist (comma separated)</label> <input
+					type="text" class="form-control" id="album" ng-model="artistsCommaSeparated">
+			</div>
+			<div class="form-group col-md-2">
+				<label for="album">Click to save</label> 
+				<button type="submit" class="btn btn-primary" ng-click="saveSong()">Save</button>
+			</div>
+		</div>
+
+
+	</form>
+	
+	<table class="table table-striped table-dark" style="width:70%; margin-left:15%">
+<thead style = "background-color: #010101;">
+  <tr>
+    <td>Title</td>
+    <td>Genre</td>
+    <td>Album</td>
+    <td>Artist(s)</td>
+    <td>Language</td>
+    <td></td>
+  </tr>
+ </thead>
+ <tbody>
+ <tr ng-repeat="x in songs" style = "background-color: #333333; color: #cecab9">
+    <td><p ng-if = "!x.editable || x.editable == false">{{ x.title }}</p><span ng-if = "x.editable == true"></p><input type="text" class="form-control" id="title" placeholder="x.genre" ng-model="x.title"></span></td>
+    <td><p ng-if = "!x.editable || x.editable == false">{{ x.genre }}</p><!-- <span ng-if = "x.editable == true"></p><select class="form-control" id="genre" ng-model="selectedGenre" ng-options="item.value for item in genres"></select></span></td> -->
+    <td><p ng-if = "!x.editable || x.editable == false">{{ x.album }}</p><span ng-if = "x.editable == true"></p><input type="text"	class="form-control" id="album" ng-model="x.album"></span></td>
+    <td><p ng-if = "!x.editable || x.editable == false"><span ng-repeat="artist in x.artists">{{artist.name}} {{$last ? '' : ($index==artists.length-2) ? ' , ' : ', '}}
+  </span></p><span ng-if = "x.editable == true"><input
+					type="text" class="form-control" id="album" ng-model="artistsCommaSeparated" style="margin-top:10px"></span></td>
+    <td><span ng-if = "!x.editable || x.editable == false">{{ x.language }}</span> <!-- <span ng-if = "x.editable == true"><select style="margin-top:10px" class="form-control"	id="langauge" ng-model="selectedLanguage" ng-options="item.value for item in languages">
+				</select></span> --></td>
+				<td><button ng-if = "!x.editable || x.editable == false" type="button" class="btn btn-primary" ng-click="edit(x)" style="margin-top:10px">Edit</button>
+				 <button ng-if = "x.editable == true" type="button" class="btn btn-primary" ng-click="updateSong(x)" style="margin-top:10px">Update</button></td>
+  </tr>
+ 
+ </tbody>
+</table>
+</div>
+</tbody>
+</table>

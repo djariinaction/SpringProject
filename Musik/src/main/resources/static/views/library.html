@@ -1,0 +1,23 @@
+<table class="table table-striped table-dark" style="width:70%; margin-left:15%">
+<thead style = "background-color: #010101;">
+  <tr>
+    <td>Title</td>
+    <td>Genre</td>
+    <td>Album</td>
+    <td>Artist(s)</td>
+    <td>Language</td>
+  </tr>
+ </thead>
+ <tbody>
+ <tr ng-repeat="x in songs" style = "background-color: #333333; color: #cecab9">
+    <td>{{ x.title }}</td>
+    <td>{{ x.genre }}</td>
+    <td>{{ x.album  }}</td>
+    <td><p><span ng-repeat="artist in x.artists">
+            {{artist.name}} {{$last ? '' : ($index==artists.length-2) ? ' and ' : ', '}}
+  </span></p></td>
+    <td>{{ x.language }}</td>
+  </tr>
+ 
+ </tbody>
+</table>
